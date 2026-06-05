@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Asset Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>IT Asset Manager</h1>
+        <p class="subtitle">Manage your company hardware assets</p>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-label">Total Assets</div>
+                <div class="stat-value" id="total-count">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Active</div>
+                <div class="stat-value" id="active-count">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Inactive</div>
+                <div class="stat-value" id="inactive-count">0</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <input type="text" class="search-box" id="search-input" placeholder="Search by asset name, serial number, or owner...">
+            <select class="filter-select" id="status-filter">
+                <option value="">All Status</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+                <option value="Repair">Repair</option>
+            </select>
+            <select class="filter-select" id="category-filter">
+                <option value="">All Categories</option>
+                <option value="Desktop">Desktop</option>
+                <option value="Laptop">Laptop</option>
+                <option value="Monitor">Monitor</option>
+                <option value="Keyboard">Keyboard</option>
+                <option value="Mouse">Mouse</option>
+                <option value="Printer">Printer</option>
+                <option value="Other">Other</option>
+            </select>
+            <button class="btn btn-primary" id="add-btn">+ Add Asset</button>
+        </div>
+
+        <table id="assets-table">
+            <thead>
+                <tr>
+                    <th>Asset Name</th>
+                    <th>Category</th>
+                    <th>Serial Number</th>
+                    <th>Owner</th>
+                    <th>Status</th>
+                    <th>Purchase Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+            </tbody>
+        </table>
+
+        <div class="empty-state" id="empty-state" style="display: none;">
+            <p>No assets found. Start by adding your first asset.</p>
+        </div>
+    </div>
+
+    <!-- Add/Edit Modal -->
+    <div class="modal" id="asset-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Add Asset</h2>
+            </div>
+            <form id="asset-form">
+                <div class="form-group">
+                    <label for="asset-name">Asset Name *</label>
+                    <input type="text" id="asset-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category *</label>
+                    <select id="category" required>
+                        <option value="">Select Category</option>
+                        <option value="Desktop">Desktop</option>
+                        <option value="Laptop">Laptop</option>
+                        <option value="Monitor">Monitor</option>
+                        <option value="Keyboard">Keyboard</option>
+                        <option value="Mouse">Mouse</option>
+                        <option value="Printer">Printer</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="serial-number">Serial Number *</label>
+                    <input type="text" id="serial-number" required>
+                </div>
+                <div class="form-group">
+                    <label for="owner">Owner/User</label>
+                    <input type="text" id="owner">
+                </div>
+                <div class="form-group">
+                    <label for="status">Status *</label>
+                    <select id="status" required>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                        <option value="Repair">Repair</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="purchase-date">Purchase Date</label>
+                    <input type="date" id="purchase-date">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cancel" id="cancel-btn">Cancel</button>
+                    <button type="submit" class="btn btn-submit">Save Asset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
