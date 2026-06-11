@@ -146,18 +146,13 @@ function renderTable() {
                 <td>${asset.name}</td>
                 <td>${asset.category}</td>
                 <td>${asset.serialNumber}</td>
-                <td>${asset.owner || '-'}</td>
+                <td>${asset.owner}</td>
+                <td><span class="status-badge status-${asset.status.toLowerCase()}">${asset.status}</span></td>
+                <td>${asset.purchaseDate}</td>
+                <td>${asset.lastUpdated}</td>
                 <td>
-                    <span class="badge badge-${asset.status.toLowerCase()}">
-                        ${asset.status}
-                    </span>
-                </td>
-                <td>${asset.purchaseDate || '-'}</td>
-                <td>
-                    <div class="actions">
-                        <button class="btn btn-edit" onclick="openModal('${asset.id}')">Edit</button>
-                        <button class="btn btn-danger" onclick="deleteAsset(${asset.id})">Delete</button>
-                    </div>
+                    <button class="btn btn-sm" onclick="openModal(${asset.id})">Edit</button>
+                    <button class="btn btn-sm btn-danger" onclick="deleteAsset(${asset.id})">Delete</button>
                 </td>
             </tr>
         `).join('');
