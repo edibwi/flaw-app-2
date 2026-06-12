@@ -123,7 +123,7 @@ function getFilteredAssets() {
         const matchesStatus = !statusFilter || asset.status === statusFilter;
         const matchesCategory = !categoryFilter || asset.category === categoryFilter;
 
-        return matchesSearch && matchesStatus;
+        return matchesSearch && matchesStatus && matchesCategory;
     });
 }
 
