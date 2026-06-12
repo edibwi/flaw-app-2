@@ -103,7 +103,7 @@ function handleFormSubmit(e) {
 
 function deleteAsset(id) {
     if (confirm('Are you sure you want to delete this asset?')) {
-        assets = assets.filter(a => a.id !== id);
+        assets = assets.filter(a => a.assetId !== id);
         saveAssets();
         renderTable();
     }
