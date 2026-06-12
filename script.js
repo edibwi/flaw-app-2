@@ -163,7 +163,7 @@ function renderTable() {
 
 function updateStats() {
     const total = assets.length;
-    const active = assets.filter(a => a.status === 'Active').length;
+    const active = assets.filter(a => a.status === 'Active' && (a.category === 'Desktop' || a.category === 'Laptop')).length;
     const inactive = assets.filter(a => a.status === 'Inactive').length;
 
     document.getElementById('total-count').textContent = total;
