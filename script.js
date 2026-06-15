@@ -53,7 +53,7 @@ function openModal(editId = null) {
     const title = document.getElementById('modal-title');
 
     if (editId) {
-        const asset = assets.find(a => a.id === editId);
+        const asset = assets.find(a => a.assetId === editId);
         title.textContent = 'Edit Asset';
         document.getElementById('asset-name').value = asset.name;
         document.getElementById('category').value = asset.category;
